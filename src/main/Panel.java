@@ -16,11 +16,9 @@ public class Panel extends JPanel {
 
     private BufferedImage image;
 
-    private int tickX,tickY,aniTick,index = 0;
+    private int indexSpriteX,indexSpriteY,aniTick,index = 0;
 
     private int aniSpeed = 10;
-
-    public boolean validTickX,validTickY = false;
 
     public Player player;
 
@@ -67,7 +65,7 @@ public class Panel extends JPanel {
 
         updateMove(player);
         animation();
-        g.drawImage(image.getSubimage(tickX,0,32,32),xDelta,yDelta,96,96,null);
+        g.drawImage(image.getSubimage(indexSpriteX,0,32,32),xDelta,yDelta,96,96,null);
 
     }
 
@@ -93,25 +91,25 @@ public class Panel extends JPanel {
 
         if(aniTick >= aniSpeed) {
             aniTick = 0;
-            if (validTickX) {
+            if (player.isMoveDown()) {
                 if (index < 3) {
                     index++;
-                    tickX = index * 32;
+                    indexSpriteX = index * 32;
                 } else {
                     index = 0;
-                    tickX = index * 32;
+                    indexSpriteX = index * 32;
                 }
-            } else if (validTickY) {
+            } else if (player.isMoveUp()) {
                 if (index >= 4 && index < 7) {
                     index++;
-                    tickX = index * 32;
+                    indexSpriteX = index * 32;
                 } else {
                     index = 4;
-                    tickX = index * 32;
+                    indexSpriteX = index * 32;
                 }
             } else {
                 index = 0;
-                tickX = index * 32;
+                indexSpriteX = index * 32;
             }
         }
     }

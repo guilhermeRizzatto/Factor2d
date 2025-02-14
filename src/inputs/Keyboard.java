@@ -29,11 +29,9 @@ public class Keyboard implements KeyListener {
             panel.player.setMoveRight(true);
         }
         if(e.getKeyCode() == KeyEvent.VK_W){
-            panel.validTickY = true;
             panel.player.setMoveUp(true);
         }
         if(e.getKeyCode() == KeyEvent.VK_S){
-            panel.validTickX = true;
             panel.player.setMoveDown(true);
         }
     }
@@ -47,11 +45,9 @@ public class Keyboard implements KeyListener {
             panel.player.setMoveRight(false);
         }
         if(e.getKeyCode() == KeyEvent.VK_W){
-            panel.validTickY = false;
             panel.player.setMoveUp(false);
         }
         if(e.getKeyCode() == KeyEvent.VK_S){
-            panel.validTickX = false;
             panel.player.setMoveDown(false);
         }
 
