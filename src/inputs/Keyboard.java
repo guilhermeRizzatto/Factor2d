@@ -2,6 +2,8 @@ package inputs;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+
+import entities.Player;
 import main.Panel;
 
 public class Keyboard implements KeyListener {
@@ -21,28 +23,36 @@ public class Keyboard implements KeyListener {
     public void keyPressed(KeyEvent e) {
 
         if(e.getKeyCode() == KeyEvent.VK_A){
-            panel.updateMove(-10,0);
+            panel.player.setMoveLeft(true);
         }
         if(e.getKeyCode() == KeyEvent.VK_D){
-            panel.updateMove(10,0);
+            panel.player.setMoveRight(true);
         }
         if(e.getKeyCode() == KeyEvent.VK_W){
             panel.validTickY = true;
-            panel.updateMove(0,-10);
+            panel.player.setMoveUp(true);
         }
         if(e.getKeyCode() == KeyEvent.VK_S){
             panel.validTickX = true;
-            panel.updateMove(0,10);
+            panel.player.setMoveDown(true);
         }
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-        if(e.getKeyCode() == KeyEvent.VK_S){
-            panel.validTickX = false;
+        if(e.getKeyCode() == KeyEvent.VK_A){
+            panel.player.setMoveLeft(false);
+        }
+        if(e.getKeyCode() == KeyEvent.VK_D){
+            panel.player.setMoveRight(false);
         }
         if(e.getKeyCode() == KeyEvent.VK_W){
             panel.validTickY = false;
+            panel.player.setMoveUp(false);
+        }
+        if(e.getKeyCode() == KeyEvent.VK_S){
+            panel.validTickX = false;
+            panel.player.setMoveDown(false);
         }
 
     }

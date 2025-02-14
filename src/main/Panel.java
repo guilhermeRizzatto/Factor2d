@@ -1,5 +1,6 @@
 package main;
 
+import entities.Player;
 import inputs.Keyboard;
 
 import javax.imageio.ImageIO;
@@ -21,7 +22,11 @@ public class Panel extends JPanel {
 
     public boolean validTickX,validTickY = false;
 
+    public Player player;
+
     public Panel(){
+        this.player = new Player();
+
         addKeyListener(new Keyboard(this));
         setPanelSize();
         importImage();
@@ -60,14 +65,26 @@ public class Panel extends JPanel {
     public void paintComponent(Graphics g){
         super.paintComponent(g);
 
+        updateMove(player);
         animation();
         g.drawImage(image.getSubimage(tickX,0,32,32),xDelta,yDelta,96,96,null);
 
     }
 
-    public void updateMove(int xDelta,int yDelta){
-        changeXDelta(xDelta);
-        changeYDelta(yDelta);
+    public void updateMove(Player player){
+        if(player.isMoveLeft()){
+            changeXDelta(-5);
+        }
+        if(player.isMoveRight()){
+            changeXDelta(5);
+        }
+        if(player.isMoveUp()){
+            changeYDelta(-5);
+        }
+        if(player.isMoveDown()){
+            changeYDelta(5);
+        }
+
     }
 
     private void animation(){
