@@ -31,7 +31,7 @@ public class Panel extends JPanel {
     }
 
     private void importImage() {
-        InputStream is = getClass().getResourceAsStream("/player-v1.png");
+        InputStream is = getClass().getResourceAsStream("/player-v1.5.png");
 
         try {
             image = ImageIO.read(is);
@@ -105,6 +105,22 @@ public class Panel extends JPanel {
                     indexSpriteX = index * 32;
                 } else {
                     index = 4;
+                    indexSpriteX = index * 32;
+                }
+            } else if (player.isMoveLeft()) {
+                if (index >= 8 && index < 11) {
+                    index++;
+                    indexSpriteX = index * 32;
+                } else {
+                    index = 8;
+                    indexSpriteX = index * 32;
+                }
+            } else if (player.isMoveRight()) {
+                if (index >= 12 && index < 15) {
+                    index++;
+                    indexSpriteX = index * 32;
+                } else {
+                    index = 12;
                     indexSpriteX = index * 32;
                 }
             } else {
