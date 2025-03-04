@@ -23,32 +23,32 @@ public class Keyboard implements KeyListener {
     public void keyPressed(KeyEvent e) {
 
         if(e.getKeyCode() == KeyEvent.VK_A){
-            panel.player.setMoveLeft(true);
+            panel.getGame().getPlayer().setMoveLeft(true);
         }
         if(e.getKeyCode() == KeyEvent.VK_D){
-            panel.player.setMoveRight(true);
+        	panel.getGame().getPlayer().setMoveRight(true);
         }
         if(e.getKeyCode() == KeyEvent.VK_W){
-            panel.player.setMoveUp(true);
+        	panel.getGame().getPlayer().setMoveUp(true);
         }
         if(e.getKeyCode() == KeyEvent.VK_S){
-            panel.player.setMoveDown(true);
+        	panel.getGame().getPlayer().setMoveDown(true);
         }
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
         if(e.getKeyCode() == KeyEvent.VK_A){
-            panel.player.setMoveLeft(false);
+        	panel.getGame().getPlayer().setMoveLeft(false);
         }
         if(e.getKeyCode() == KeyEvent.VK_D){
-            panel.player.setMoveRight(false);
+        	panel.getGame().getPlayer().setMoveRight(false);
         }
         if(e.getKeyCode() == KeyEvent.VK_W){
-            panel.player.setMoveUp(false);
+        	panel.getGame().getPlayer().setMoveUp(false);
         }
         if(e.getKeyCode() == KeyEvent.VK_S){
-            panel.player.setMoveDown(false);
+        	panel.getGame().getPlayer().setMoveDown(false);
         }
 
     }
